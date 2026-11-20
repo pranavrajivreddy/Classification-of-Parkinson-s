@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "name": "agent_log_tap_max",
+      "formula": "logabs(tap_flight_max)",
+      "rationale": "Compress the skewed maximum inter-tap interval while retaining the observed tail association."
+    },
+    {
+      "name": "agent_tap_tail_ratio",
+      "formula": "pdiv(tap_flight_max - tap_flight_median, tap_flight_median)",
+      "rationale": "Separate occasional long intervals from a person's typical interval."
+    },
+    {
+      "name": "agent_tap_nonalt_interval",
+      "formula": "tap_flight_mean * (1 - tap_alternation_rate)",
+      "rationale": "Interaction between slower intervals and nonalternating events; not a validated arrest measure."
+    },
+    {
+      "name": "agent_tap_asymmetry",
+      "formula": "abs(2 * tap_left_button_ratio - 1)",
+      "rationale": "Unsigned button imbalance, without interpreting it as clinical laterality."
+    },
+    {
+      "name": "agent_tap_relative_iqr",
+      "formula": "pdiv(tap_flight_iqr, tap_flight_median)",
+      "rationale": "Scale interval dispersion by the median instead of overall mean."
+    },
+    {
+      "name": "agent_log_jitter",
+      "formula": "logabs(voice_jitter_local)",
+      "rationale": "Compress acoustic perturbation outliers."
+    },
+    {
+      "name": "agent_shimmer_scale_difference",
+      "formula": "voice_shimmer_apq11 - voice_shimmer_apq3",
+      "rationale": "Compare longer and shorter amplitude perturbation summaries measured in the same units."
+    },
+    {
+      "name": "agent_pitch_relative_sd",
+      "formula": "pdiv(voice_f0_std, voice_f0_mean)",
+      "rationale": "Dimensionless pitch dispersion, with no claim that it isolates PD."
+    },
+    {
+      "name": "agent_log_walk_speed",
+      "formula": "logabs(walk_speed_mean)",
+      "rationale": "Simple nonlinear speed transform; weak discovery association warrants skepticism."
+    },
+    {
+      "name": "agent_log_walk_cadence",
+      "formula": "logabs(walk_cadence)",
+      "rationale": "Simple nonlinear cadence transform as a low-complexity walking hypothesis."
+    },
+    {
+      "name": "agent_tap_voice_tail",
+      "formula": "logabs(tap_flight_max) * logabs(voice_jitter_local)",
+      "rationale": "Test whether timing-tail and acoustic perturbation signals interact."
+    },
+    {
+      "name": "agent_tap_walk_interaction",
+      "formula": "tap_flight_mean * walk_step_length",
+      "rationale": "Cross-task product of interval and device-estimated step length; descriptive, not mechanistic."
+    }
+  ]
+}

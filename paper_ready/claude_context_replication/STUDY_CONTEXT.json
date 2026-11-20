@@ -1,0 +1,34 @@
+{
+  "study": "SMRITI-AI: retrospective participant-level Parkinson's diagnosis classification using self-administered mPower smartphone tasks. Research workflow evaluation, not an autonomous clinical service.",
+  "outcome": "Binary self-reported professional Parkinson's disease diagnosis from study surveys. Controls report no professional diagnosis; they are not clinically adjudicated healthy participants. Labels are not prospective conversion or disease severity outcomes. Do not claim validated early detection, reduced disease risk, medication response, or causal biomarker effects.",
+  "cohort": {
+    "participants": 702,
+    "reported_PD": 351,
+    "reported_no_PD": 351,
+    "age_range_years": [
+      35,
+      75
+    ],
+    "matching": "351 non-overlapping pairs, exact survey sex and age difference at most two years. This matched retrospective case-control sample does not reflect population prevalence or guarantee elimination of confounding.",
+    "selection": "All included participants have locally available selected tapping, pedometer and voice records passing fixed technical QC. Each person contributes one selected record per modality. The tasks are linked by participant, not necessarily synchronized. Do not invent longitudinal trajectories, session pairs or unmeasured sensor channels."
+  },
+  "measurements": {
+    "tapping": "16 conventional features from touchscreen events. Inter-event timing, counts, missed buttons and alternation are task measurements; they do not directly measure finger flight, diagnosed bradykinesia, freezing or motor arrest. Tapping duration must be 5-60 seconds, with sufficient valid events and intervals retained within 0.01-5 seconds.",
+    "walking": "Six summaries from cumulative smartphone pedometer packets: duration, final steps, final distance, speed, cadence and step length. The current model has no raw accelerometer or gyroscope waveform, resting-tremor measurement, or measured stride-to-stride variability. This statement concerns available model inputs, not whether any raw files exist in the source study. Algebraically redundant rearrangements are unhelpful.",
+    "voice": "27 full-recording acoustic summaries: duration, pitch mean/SD, jitter/shimmer, harmonicity, spectral summaries and 13 mean MFCCs. Audio is converted to 16 kHz mono; fixed QC includes duration >=2 seconds, finite pitch and >=30% voiced pitch frames. No validated isolated-phonation segmentation is available in this representation. Uncontrolled environment/device/recording effects are possible; their causal contribution to performance has not been established.",
+    "demographics": "Age, binary survey sex and smoking are baseline predictors. Agent-generated formulas may use only the listed 49 sensor inputs, not demographics, diagnosis answers, medication status, identity, device identifiers or study engagement.",
+    "baseline": "52 conventional features total. Historical engineered formulas are excluded. Feature definitions and units supplied separately are authoritative; if a biological interpretation conflicts with a computational definition, use the computational definition."
+  },
+  "experiment": {
+    "discovery_participants": 210,
+    "discovery_pairs": 105,
+    "evaluation_participants": 492,
+    "evaluation_pairs": 246,
+    "question": "Can a bounded single-agent feedback procedure propose simple sensor transformations that consistently improve discrimination across the fixed six-learner panel? This experiment uses full multimodal inputs; it does not repeat all nine modality configurations.",
+    "agent_role": "Propose at most four formulas each round, revise them using only aggregate discovery feedback and measurement definitions, and provide qualified rationales. You cannot change cohort, learners, gate, rounds or evaluation boundaries. No participant records or raw recordings are supplied to you.",
+    "local_controller": "Fits imputation, scaling and classifiers inside each training partition; scores candidates by repeated pair-grouped discovery CV; enforces the unchanged stability gate; freezes at most one two-feature bundle. The equal-probability ensemble gives each family equal weight. Validation data are used for discovery selection, not independent proof of improvement.",
+    "objective": "Primary mean-fold ROC-AUC improvement, with per-family AUC, average precision, Brier score and fixed-threshold sensitivity/specificity/F scores provided as secondary feedback. No requirement to reach a target AUC; do not invent gains or assume a performance ceiling. Changing thresholds alone cannot improve ROC-AUC.",
+    "evaluation": "Only a passing Claude bundle proceeds to the predefined nested evaluation, which is unavailable to agent feedback. Investigators have previously explored these participants, so this is exploratory internal evaluation, not untouched external confirmation. Repeated CV partitions share people and are not independent studies.",
+    "interpretation": "Deterministic formulas add no new measured information, but may help finite learners represent useful relationships. A positive discovery gain is a hypothesis to evaluate. It is not a causal effect, clinical intervention recommendation or evidence of prospective screening benefit."
+  }
+}

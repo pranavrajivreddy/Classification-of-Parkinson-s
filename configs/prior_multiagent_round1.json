@@ -1,0 +1,141 @@
+{
+  "proposed": [
+    {
+      "name": "agent_r1_measurement_0",
+      "formula": "logabs(tap_flight_std) * logabs(voice_jitter_rap)",
+      "inputs": [
+        "tap_flight_std",
+        "voice_jitter_rap"
+      ],
+      "rationale": "Combines motor timing variability (tapping interval SD) with vocal perturbation (jitter RAP), both dimensionless transforms; captures potential cross-modal coordination of motor control instability."
+    },
+    {
+      "name": "agent_r1_measurement_1",
+      "formula": "tap_flight_cv * (1 - tap_alternation_rate)",
+      "inputs": [
+        "tap_alternation_rate",
+        "tap_flight_cv"
+      ],
+      "rationale": "Coefficient of variation of inter-tap intervals scaled by alternation deficit; dimensionless ratio emphasizing motor rhythm irregularity during non-alternating sequences."
+    },
+    {
+      "name": "agent_r1_measurement_2",
+      "formula": "logabs(walk_cadence) * logabs(voice_spectral_centroid)",
+      "inputs": [
+        "voice_spectral_centroid",
+        "walk_cadence"
+      ],
+      "rationale": "Log-transformed walking cadence (steps/min) multiplied by log-transformed vocal spectral centroid (Hz); dimensionless combination of locomotor rhythm and voice spectral energy distribution."
+    },
+    {
+      "name": "agent_r1_measurement_3",
+      "formula": "abs(tap_left_button_ratio - 0.5) * tap_flight_cv",
+      "inputs": [
+        "tap_flight_cv",
+        "tap_left_button_ratio"
+      ],
+      "rationale": "Absolute deviation from equal button use multiplied by tapping interval CV; dimensionless feature capturing asymmetry in motor lateralization combined with timing variability."
+    },
+    {
+      "name": "agent_r1_integration_0",
+      "formula": "tap_flight_iqr * voice_jitter_ppq5",
+      "inputs": [
+        "tap_flight_iqr",
+        "voice_jitter_ppq5"
+      ],
+      "rationale": "Interaction between tapping interval variability and voice period perturbation; cross-modal motor control irregularity."
+    },
+    {
+      "name": "agent_r1_integration_1",
+      "formula": "abs(tap_left_button_ratio - 0.5) * walk_cadence",
+      "inputs": [
+        "tap_left_button_ratio",
+        "walk_cadence"
+      ],
+      "rationale": "Asymmetry in button preference weighted by walking pace; links lateral bias with gross motor rhythm."
+    },
+    {
+      "name": "agent_r1_integration_2",
+      "formula": "tap_flight_std * voice_shimmer_apq5",
+      "inputs": [
+        "tap_flight_std",
+        "voice_shimmer_apq5"
+      ],
+      "rationale": "Product of tapping interval dispersion and mid-range amplitude shimmer; coordinated stability across fine motor and vocal systems."
+    },
+    {
+      "name": "agent_r1_integration_3",
+      "formula": "(1 - tap_half_rate_ratio) * voice_f0_std",
+      "inputs": [
+        "tap_half_rate_ratio",
+        "voice_f0_std"
+      ],
+      "rationale": "Tapping fatigue (decline in second half) multiplied by pitch variability; endurance-variability cross-domain relationship."
+    }
+  ],
+  "approved": [
+    {
+      "name": "agent_r1_measurement_0",
+      "formula": "logabs(tap_flight_std) * logabs(voice_jitter_rap)",
+      "inputs": [
+        "tap_flight_std",
+        "voice_jitter_rap"
+      ],
+      "rationale": "Combines motor timing variability (tapping interval SD) with vocal perturbation (jitter RAP), both dimensionless transforms; captures potential cross-modal coordination of motor control instability."
+    },
+    {
+      "name": "agent_r1_measurement_1",
+      "formula": "tap_flight_cv * (1 - tap_alternation_rate)",
+      "inputs": [
+        "tap_alternation_rate",
+        "tap_flight_cv"
+      ],
+      "rationale": "Coefficient of variation of inter-tap intervals scaled by alternation deficit; dimensionless ratio emphasizing motor rhythm irregularity during non-alternating sequences."
+    },
+    {
+      "name": "agent_r1_measurement_2",
+      "formula": "logabs(walk_cadence) * logabs(voice_spectral_centroid)",
+      "inputs": [
+        "voice_spectral_centroid",
+        "walk_cadence"
+      ],
+      "rationale": "Log-transformed walking cadence (steps/min) multiplied by log-transformed vocal spectral centroid (Hz); dimensionless combination of locomotor rhythm and voice spectral energy distribution."
+    },
+    {
+      "name": "agent_r1_integration_0",
+      "formula": "tap_flight_iqr * voice_jitter_ppq5",
+      "inputs": [
+        "tap_flight_iqr",
+        "voice_jitter_ppq5"
+      ],
+      "rationale": "Interaction between tapping interval variability and voice period perturbation; cross-modal motor control irregularity."
+    },
+    {
+      "name": "agent_r1_integration_1",
+      "formula": "abs(tap_left_button_ratio - 0.5) * walk_cadence",
+      "inputs": [
+        "tap_left_button_ratio",
+        "walk_cadence"
+      ],
+      "rationale": "Asymmetry in button preference weighted by walking pace; links lateral bias with gross motor rhythm."
+    },
+    {
+      "name": "agent_r1_integration_2",
+      "formula": "tap_flight_std * voice_shimmer_apq5",
+      "inputs": [
+        "tap_flight_std",
+        "voice_shimmer_apq5"
+      ],
+      "rationale": "Product of tapping interval dispersion and mid-range amplitude shimmer; coordinated stability across fine motor and vocal systems."
+    },
+    {
+      "name": "agent_r1_integration_3",
+      "formula": "(1 - tap_half_rate_ratio) * voice_f0_std",
+      "inputs": [
+        "tap_half_rate_ratio",
+        "voice_f0_std"
+      ],
+      "rationale": "Tapping fatigue (decline in second half) multiplied by pitch variability; endurance-variability cross-domain relationship."
+    }
+  ]
+}

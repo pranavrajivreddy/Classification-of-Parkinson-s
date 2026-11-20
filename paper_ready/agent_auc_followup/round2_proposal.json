@@ -1,0 +1,34 @@
+{
+  "features": [
+    {
+      "name": "agent_auc_log_nonalt_interval",
+      "formula": "logabs(tap_flight_mean) * (1 - tap_alternation_rate)",
+      "rationale": "Compress high inter-tap intervals while retaining their interaction with nonalternation."
+    },
+    {
+      "name": "agent_auc_nonalt_rate_inverse",
+      "formula": "pdiv(1 - tap_alternation_rate, tap_rate)",
+      "rationale": "Alternative rate-based timescale uses task event count/duration instead of retained interval mean."
+    },
+    {
+      "name": "agent_auc_imbalance_interval",
+      "formula": "abs(tap_left_button_ratio - 0.5) * logabs(tap_flight_mean)",
+      "rationale": "Combine left/right event imbalance and tapping slowness without claiming neurological laterality."
+    },
+    {
+      "name": "agent_auc_half_change_interval",
+      "formula": "(1 - tap_half_rate_ratio) * logabs(tap_flight_mean)",
+      "rationale": "Signed second-half rate change interacting with slowness; practice and task execution can also cause it."
+    },
+    {
+      "name": "agent_auc_nonalt_step",
+      "formula": "(1 - tap_alternation_rate) * logabs(walk_step_length)",
+      "rationale": "Cross-task interaction of tapping alternation and device-derived step length."
+    },
+    {
+      "name": "agent_auc_nonalt_shimmer",
+      "formula": "(1 - tap_alternation_rate) * logabs(voice_shimmer_apq11)",
+      "rationale": "Cross-modal nonalternation and amplitude-perturbation interaction."
+    }
+  ]
+}

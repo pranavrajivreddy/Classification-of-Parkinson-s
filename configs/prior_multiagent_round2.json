@@ -1,0 +1,114 @@
+{
+  "proposed": [
+    {
+      "name": "agent_r2_measurement_0",
+      "formula": "tap_flight_iqr * (1 - tap_half_rate_ratio)",
+      "inputs": [
+        "tap_flight_iqr",
+        "tap_half_rate_ratio"
+      ],
+      "rationale": "Interaction between tapping interval dispersion (IQR) and fatigue (decline in second-half rate); dimensionless motor control variability under endurance load."
+    },
+    {
+      "name": "agent_r2_measurement_1",
+      "formula": "logabs(voice_f0_std) * logabs(walk_step_length)",
+      "inputs": [
+        "voice_f0_std",
+        "walk_step_length"
+      ],
+      "rationale": "Log-transformed pitch variability multiplied by log-transformed step length; dimensionless cross-modal combination of vocal control and gait spatial parameter."
+    },
+    {
+      "name": "agent_r2_measurement_2",
+      "formula": "tap_flight_cv * voice_shimmer_apq3",
+      "inputs": [
+        "tap_flight_cv",
+        "voice_shimmer_apq3"
+      ],
+      "rationale": "Coefficient of variation of inter-tap intervals multiplied by short-term amplitude shimmer; dimensionless product of motor timing irregularity and vocal amplitude instability."
+    },
+    {
+      "name": "agent_r2_measurement_3",
+      "formula": "abs(tap_left_button_ratio - 0.5) * voice_zero_crossing_rate",
+      "inputs": [
+        "tap_left_button_ratio",
+        "voice_zero_crossing_rate"
+      ],
+      "rationale": "Absolute deviation from equal button use multiplied by mean zero-crossing rate; dimensionless combination of motor lateral asymmetry and vocal signal noise/aperiodicity."
+    },
+    {
+      "name": "agent_r2_integration_0",
+      "formula": "tap_flight_cv * voice_shimmer_local",
+      "inputs": [
+        "tap_flight_cv",
+        "voice_shimmer_local"
+      ],
+      "rationale": "Coefficient of variation of inter-tap intervals multiplied by local amplitude shimmer; dimensionless cross-modal measure of motor rhythm irregularity and vocal amplitude instability."
+    },
+    {
+      "name": "agent_r2_integration_1",
+      "formula": "logabs(tap_flight_iqr) * logabs(voice_spectral_rolloff)",
+      "inputs": [
+        "tap_flight_iqr",
+        "voice_spectral_rolloff"
+      ],
+      "rationale": "Log-transformed tapping interval interquartile range multiplied by log-transformed vocal spectral rolloff; captures potential relationship between motor timing spread and voice high-frequency energy distribution."
+    },
+    {
+      "name": "agent_r2_integration_2",
+      "formula": "(1 - tap_half_rate_ratio) * walk_step_length",
+      "inputs": [
+        "tap_half_rate_ratio",
+        "walk_step_length"
+      ],
+      "rationale": "Tapping fatigue (decline in second half) multiplied by walking step length; dimensionless interaction between fine motor endurance and gross motor stride pattern."
+    }
+  ],
+  "approved": [
+    {
+      "name": "agent_r2_measurement_0",
+      "formula": "tap_flight_iqr * (1 - tap_half_rate_ratio)",
+      "inputs": [
+        "tap_flight_iqr",
+        "tap_half_rate_ratio"
+      ],
+      "rationale": "Interaction between tapping interval dispersion (IQR) and fatigue (decline in second-half rate); dimensionless motor control variability under endurance load."
+    },
+    {
+      "name": "agent_r2_measurement_1",
+      "formula": "logabs(voice_f0_std) * logabs(walk_step_length)",
+      "inputs": [
+        "voice_f0_std",
+        "walk_step_length"
+      ],
+      "rationale": "Log-transformed pitch variability multiplied by log-transformed step length; dimensionless cross-modal combination of vocal control and gait spatial parameter."
+    },
+    {
+      "name": "agent_r2_measurement_2",
+      "formula": "tap_flight_cv * voice_shimmer_apq3",
+      "inputs": [
+        "tap_flight_cv",
+        "voice_shimmer_apq3"
+      ],
+      "rationale": "Coefficient of variation of inter-tap intervals multiplied by short-term amplitude shimmer; dimensionless product of motor timing irregularity and vocal amplitude instability."
+    },
+    {
+      "name": "agent_r2_integration_1",
+      "formula": "logabs(tap_flight_iqr) * logabs(voice_spectral_rolloff)",
+      "inputs": [
+        "tap_flight_iqr",
+        "voice_spectral_rolloff"
+      ],
+      "rationale": "Log-transformed tapping interval interquartile range multiplied by log-transformed vocal spectral rolloff; captures potential relationship between motor timing spread and voice high-frequency energy distribution."
+    },
+    {
+      "name": "agent_r2_integration_2",
+      "formula": "(1 - tap_half_rate_ratio) * walk_step_length",
+      "inputs": [
+        "tap_half_rate_ratio",
+        "walk_step_length"
+      ],
+      "rationale": "Tapping fatigue (decline in second half) multiplied by walking step length; dimensionless interaction between fine motor endurance and gross motor stride pattern."
+    }
+  ]
+}

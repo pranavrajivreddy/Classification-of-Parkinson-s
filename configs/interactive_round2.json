@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "name": "agent_log_tap_mean",
+      "formula": "logabs(tap_flight_mean)",
+      "rationale": "A nonlinear monotonic interval representation may be more appropriate than adding many interactions."
+    },
+    {
+      "name": "agent_log_tap_rate",
+      "formula": "logabs(tap_rate)",
+      "rationale": "Compress high rates instead of adding a second interval variability ratio."
+    },
+    {
+      "name": "agent_tap_standardized_tail",
+      "formula": "pdiv(tap_flight_max - tap_flight_mean, tap_flight_std)",
+      "rationale": "Distinguish extreme pauses relative to within-task interval scale."
+    },
+    {
+      "name": "agent_tap_nonalt_rate",
+      "formula": "tap_rate * (1 - tap_alternation_rate)",
+      "rationale": "Rate of nonalternating valid events, retaining compatible dimensions."
+    },
+    {
+      "name": "agent_log_tap_tail_ratio",
+      "formula": "logabs(pdiv(tap_flight_max - tap_flight_median, tap_flight_median))",
+      "rationale": "Round-one tail ratio was weak; bound its leverage with a logarithm."
+    },
+    {
+      "name": "agent_log_shimmer_long",
+      "formula": "logabs(voice_shimmer_apq11)",
+      "rationale": "Long-window shimmer showed a modest discovery association; compress outliers."
+    },
+    {
+      "name": "agent_shimmer_scale_ratio",
+      "formula": "pdiv(voice_shimmer_apq11, voice_shimmer_apq3)",
+      "rationale": "Relative long/short perturbation may separate scale from total perturbation."
+    },
+    {
+      "name": "agent_tap_voice_logmean",
+      "formula": "logabs(tap_flight_mean) * logabs(voice_shimmer_apq11)",
+      "rationale": "One revised interaction between typical timing and long-window amplitude perturbation, rather than the unsuccessful large bundle."
+    }
+  ]
+}

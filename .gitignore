@@ -1,0 +1,43 @@
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+.synapseConfig
+.synapseCache/
+*credentials*
+*secret*
+*.pem
+*.key
+# Participant data, fitted models, output logs and local experiments
+RealDementiaData/
+experiments/
+paper_ready/private/
+paper_ready/cache/
+paper_ready/**/api/
+paper_ready/**/*ledger*
+paper_ready/**/*request*
+paper_ready/**/*response*
+*.parquet
+*.joblib
+*.pkl
+*.pickle
+*.npz
+*.npy
+*.csv
+*.tsv
+*.wav
+*.m4a
+*.mp3
+*.log
+# Generated reports and figures
+manuscript/
+output/
+catboost_info/
+# Runtime artifacts
+.git/
+.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.coverage

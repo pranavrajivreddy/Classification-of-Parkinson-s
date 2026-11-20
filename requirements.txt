@@ -1,0 +1,19 @@
+# Versions installed in the verified research environment. Python 3.12 used.
+numpy==2.5.5
+pandas==3.1.1
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+pyarrow==26.0.1
+xgboost==3.4.1
+lightgbm==4.7.0
+catboost==1.2.10
+optuna==5.1.0
+shap==0.48.0
+matplotlib==3.11.2
+librosa==1.0.1
+soundfile==0.14.0
+praat-parselmouth==0.4.7
+requests==2.34.2
+threadpoolctl==3.8.0
+pytest==9.2.0

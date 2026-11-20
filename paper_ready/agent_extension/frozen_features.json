@@ -1,0 +1,82 @@
+{
+  "features": [
+    {
+      "name": "agent_log_jitter",
+      "formula": "logabs(voice_jitter_local)",
+      "inputs": [
+        "voice_jitter_local"
+      ],
+      "rationale": "Compress acoustic perturbation outliers."
+    },
+    {
+      "name": "agent_shimmer_scale_difference",
+      "formula": "voice_shimmer_apq11 - voice_shimmer_apq3",
+      "inputs": [
+        "voice_shimmer_apq11",
+        "voice_shimmer_apq3"
+      ],
+      "rationale": "Compare longer and shorter amplitude perturbation summaries measured in the same units."
+    },
+    {
+      "name": "agent_shimmer_scale_ratio",
+      "formula": "pdiv(voice_shimmer_apq11, voice_shimmer_apq3)",
+      "inputs": [
+        "voice_shimmer_apq11",
+        "voice_shimmer_apq3"
+      ],
+      "rationale": "Relative long/short perturbation may separate scale from total perturbation."
+    },
+    {
+      "name": "agent_tap_nonalt_interval",
+      "formula": "tap_flight_mean * (1 - tap_alternation_rate)",
+      "inputs": [
+        "tap_alternation_rate",
+        "tap_flight_mean"
+      ],
+      "rationale": "Interaction between slower intervals and nonalternating events; not a validated arrest measure."
+    },
+    {
+      "name": "agent_tap_standardized_tail",
+      "formula": "pdiv(tap_flight_max - tap_flight_mean, tap_flight_std)",
+      "inputs": [
+        "tap_flight_max",
+        "tap_flight_mean",
+        "tap_flight_std"
+      ],
+      "rationale": "Distinguish extreme pauses relative to within-task interval scale."
+    },
+    {
+      "name": "agent_tap_walk_interaction",
+      "formula": "tap_flight_mean * walk_step_length",
+      "inputs": [
+        "tap_flight_mean",
+        "walk_step_length"
+      ],
+      "rationale": "Cross-task product of interval and device-estimated step length; descriptive, not mechanistic."
+    }
+  ],
+  "configuration_features": {
+    "demographics": [],
+    "tapping": [
+      "agent_tap_nonalt_interval"
+    ],
+    "walking": [],
+    "voice": [
+      "agent_log_jitter"
+    ],
+    "tap_walk": [
+      "agent_tap_walk_interaction"
+    ],
+    "tap_voice": [
+      "agent_tap_standardized_tail"
+    ],
+    "walk_voice": [
+      "agent_shimmer_scale_difference"
+    ],
+    "sensors": [],
+    "full": [
+      "agent_shimmer_scale_ratio"
+    ]
+  },
+  "release_note": "Frozen formula specification for numerical reproduction; not a fresh autonomous discovery run."
+}

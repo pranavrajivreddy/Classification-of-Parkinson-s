@@ -1,0 +1,36 @@
+{
+  "validation_date": "2026-11-21",
+  "python": "3.12",
+  "scope": "Code-only packaging; no full study rerun and no paid API calls",
+  "pytest": {
+    "passed": 71,
+    "skipped_private_data": 11,
+    "failed": 0,
+    "warnings": 11,
+    "warning_types": [
+      "Matplotlib pending deprecation in SHAP",
+      "scikit-learn SVC probability deprecation"
+    ]
+  },
+  "syntax_parse": {
+    "python_files": 72,
+    "status": "passed"
+  },
+  "local_research_imports": {
+    "missing": 0
+  },
+  "private_payloads_in_release": false,
+  "credential_scan": {
+    "scope": "BMP_CODEX recognized text files and source members of 16 ZIP files; raw datasets, environments and Git history excluded; maximum file size 20 MB",
+    "files_and_archive_members_scanned": 26487,
+    "confirmed_credentials": 0,
+    "false_positive_matches": 2,
+    "false_positive_reason": "Third-party Narwhals documentation URL containing a substring that matched generic sk-token pattern"
+  },
+  "limitations": [
+    "Default tests skip private participant-data checks.",
+    "No model results or full data rerun are certified by this packaging check.",
+    "Previously shared chat credentials are not revoked by file scanning.",
+    "No Git history, raw datasets, home-directory credentials or chat history were changed."
+  ]
+}

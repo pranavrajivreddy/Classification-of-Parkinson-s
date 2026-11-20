@@ -1,0 +1,34 @@
+{
+  "features": [
+    {
+      "name": "agent_auc_nonalt_interval",
+      "formula": "tap_flight_mean * (1 - tap_alternation_rate)",
+      "rationale": "Interaction between slower tapping and nonalternating events; may expose a nonadditive motor pattern."
+    },
+    {
+      "name": "agent_auc_interval_tail",
+      "formula": "pdiv(tap_flight_max - tap_flight_median, tap_flight_iqr)",
+      "rationale": "Extreme inter-tap gap relative to robust within-task spread, with guarded division."
+    },
+    {
+      "name": "agent_auc_f0_cv",
+      "formula": "pdiv(voice_f0_std, voice_f0_mean)",
+      "rationale": "Pitch dispersion relative to mean pitch; avoids assuming absolute pitch has the same meaning across participants."
+    },
+    {
+      "name": "agent_auc_shimmer_logcontrast",
+      "formula": "logabs(voice_shimmer_apq11) - logabs(voice_shimmer_apq3)",
+      "rationale": "Compress and contrast longer/shorter amplitude-perturbation scales."
+    },
+    {
+      "name": "agent_auc_motor_product",
+      "formula": "logabs(tap_flight_mean) * logabs(walk_step_length)",
+      "rationale": "Bound extreme motor interaction magnitudes with logarithmic transforms."
+    },
+    {
+      "name": "agent_auc_tap_voice",
+      "formula": "logabs(tap_flight_iqr) * logabs(voice_jitter_local)",
+      "rationale": "Cross-modal interaction between tapping variability and acoustic perturbation."
+    }
+  ]
+}
